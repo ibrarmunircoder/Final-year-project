@@ -32,7 +32,7 @@ module.exports.getStartupDetailPage = (req, res, next) => {
 
 module.exports.postStartupSendRequest = async (req, res, next) => {
     if(!req.session.isLoggedIn){
-        return res.render('/login');
+        return res.redirect('/login');
     }
     const _id = req.body.id;
     const startup = await Startup.findById(_id);

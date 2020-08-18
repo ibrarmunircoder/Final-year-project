@@ -31,7 +31,7 @@ module.exports.postInvestorSearches = (req, res, next) => {
 
 module.exports.postInvestorSendRequest = async (req, res, next) => {
     if(!req.session.isLoggedIn){
-        return res.render('/login');
+        return res.redirect('/login');
     }
     const _id = req.body.id;
     const investor = await Investor.findById(_id);
