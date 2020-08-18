@@ -36,6 +36,10 @@ app.use(authRoutes);
 app.use(dashboardRoutes);
 app.use(investorRoutes);
 app.use(startupRoutes);
+
+app.get((req, res, next) => {
+    res.render('404');
+});
 mongoose.connect(process.env.blog_db, { useNewUrlParser: true })
     .then(result => {
         app.listen(port, () => {
