@@ -1,0 +1,202 @@
+<%- include('includes/head.ejs') %>
+
+<!-- Navigation -->
+<header id="nav-header">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark static-top">
+  <div class="container">
+      <a class="navbar-brand" href="/">
+          <img src="/img/white-Text.png" alt="Logo">
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+          <a class="nav-link" href="/">Home
+                  <span class="sr-only">(current)</span>
+              </a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/investor-page">Invest</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/startup-page">Get Funded</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+          </li>
+          <% if (!isAuthenticated) { %>
+          <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/register">Signup</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+              <form action="/logout" method="post">
+                  <button class="logout" type="submit">Logout</button>
+              </form>
+          </li>
+          <% } %>
+      </ul>
+      </div>
+  </div>
+  </nav>
+  </header>
+  <!-- Header background -->
+
+<% if(error) { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><%= error %></strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
+    <div class="container contact">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="contact-info">
+                    <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image"/>
+                    <h2>Welcome to the Platform</h2>
+                    <h4>We would love to help you!</h4>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="contact-form">
+                  <form action="/post-startup-profile" method="post">
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="startupname">Startup Name:</label>
+                      <div class="col-sm-10">          
+                        <input type="text" class="form-control" id="startupname" placeholder="Enter starup name" name="startup_name">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="startupstage">Stage:</label>
+                        <div class="col-sm-10">          
+                            <select class="form-control" id="startupstage" name="startup_stage">
+                                <option value="Pre-Startup/R&D">Pre-Startup/R&D</option>
+                                <option value="Finished Product">Finished Product</option>
+                                <option value="Achieving Sales">Achieving Sales</option>
+                              </select>
+                        </div>
+                    </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-3" for="startuwebsiteurl">Website Address:</label>
+                        <div class="col-sm-10">          
+                          <input type="url" class="form-control" id="startuwebsiteurl" placeholder="Enter starup name" name="startup_website_url">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-3" for="startupstage">Select Category:</label>
+                        <div class="col-sm-10">          
+                            <select class="form-control" id="startupstage" name="startup_category">
+                                <option value="software">Software</option>
+                                <option value="food">Food</option>
+                                <option value="property">Property</option>
+                                <option value="technology">Technology</option>
+                                <option value="restaurant">Restaurant & Bars</option>
+                                <option value="retail">Retail</option>
+                                <option value="education">Education & Training</option>
+                                <option value="medical">Medical & Science</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="agriculture">Agriculture</option>
+                                <option value="media">Media</option>
+                                <option value="business services">Business Services</option>
+                                <option value="finance">Finance</option>
+                                <option value="manufacturing and engineering">Manufacturing & Engineering</option>
+                                <option value="">Energy & Electricity</option>
+                                <option value="products and Inventions">Products & Inventions</option>
+                                <option value="sales and marketing">Sales & Marketing</option>
+                                <option value="fashion and beauty">Fashion & Beauty</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="personal services">Personal Services</option>
+                              </select>
+                        </div>
+                      </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="city">City:</label>
+                      <div class="col-sm-10">          
+                        <input type="text" class="form-control" id="city" placeholder="Enter city Name" name="city">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="country">Country:</label>
+                        <div class="col-sm-10">          
+                          <input type="text" class="form-control" id="city" placeholder="Enter country Name" name="country">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-5" for="targetamount">How much are you raising in total?</label>
+                        <div class="col-sm-10">          
+                          <input type="number" class="form-control" id="targetamount" placeholder="Enter Target Amount" name="target_amount">
+                        </div>
+                      </div>
+
+                      
+                      <div class="form-group">
+                        <label class="control-label col-sm-5" for="achievedamount">How much of this total have you raised?</label>
+                        <div class="col-sm-10">          
+                          <input type="number" class="form-control" id="achievedamount" placeholder="Enter Target Amount" name="achieved_amount">
+                        </div>
+                      </div>
+
+                      
+                      <div class="form-group">
+                        <label class="control-label col-sm-6" for="inestorminamount">What is the minimum investment per investor?</label>
+                        <div class="col-sm-10">          
+                          <input type="number" class="form-control" id="inestorminamount" placeholder="Enter Target Amount" name="investor_min_amount">
+                        </div>
+                      </div>
+
+
+                    <div class="form-group">
+                      <label class="control-label col-sm-2" for="email">Email:</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="control-label col-sm-4" for="summary">Product/Service Summary:</label>
+                      <div class="col-sm-10">
+                        <textarea class="form-control" rows="5" id="summary" name="startup_summary"></textarea>
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group">
+                        <label class="control-label col-sm-4" for="document">Upload Pitch Deck:</label>
+                        <div class="col-sm-10">
+                          <input type="file" name="startup-document" id="document">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-sm-4" for="banner">Upload Banner Image:</label>
+                        <div class="col-sm-10">
+                          <input type="file" name="banner-image" id="banner">
+                        </div>
+                      </div> -->
+
+
+                    <div class="form-group">        
+                      <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                      </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('includes/end.ejs') %>

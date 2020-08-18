@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/investor-dashboard.css">
+    <link rel="stylesheet" href="/css/investor-detail.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Investor Detail</title>
+</head>
+<body>
+    <header>
+        <div id="bg-image">
+            <h3>Welcome, <%= investor.investorName %></h3>
+        </div>
+        <div class="fluid-conatiner">
+            <div class="row">
+                <div class="col-sm-12">
+                  <ul class="invest-display" style="font-size: 20px; margin-top: 5px;">
+                      <li>
+                          <a href="/investor-detail-page">Background</a>
+                      </li>
+                      <li>
+                          <a href="#expertise">Expertise</a>
+                      </li>
+                      <li>
+                        <form action="/investor-request" method="post">
+                            <input type="hidden" name="id" value="<%= investor._id %>">
+                            <button class="btn btn-primary" type="submit">Send Request</button>
+                        </form>
+                      </li>
+                      <% if(!isAuthenticated) {%>
+                      <li>
+                        <a href="/login" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style="padding: 10px 30px">Login</a>
+                      </li>
+                      <% } %>
+                  </ul>   
+                </div>
+            </div>
+        </div>
+    </header>
+    <hr>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 pt-5">
+                <h3>About Me</h3>
+                <p><%= investor.professional_bg %></p>
+                <div class="expertise pt-5" id="expertise">
+                    <h3>Areas of Expertise</h3>
+                    <p><%= investor.Area_Of_Expertise %></p>
+                </div>
+            </div>
+            <div class="col-sm-4 pt-5">
+                <h4>My Profile</h4>
+                <hr>
+                <div class="row-structure">
+                    <p>Miximum Investment</p>
+                    <h5>Rs: <%= investor.Max_Investment %></h5>
+                </div>
+                <hr>
+                <div class="row-structure">
+                    <p>Minimum Investment</p>
+                    <h5>Rs: <%= investor.Min_Investment %></h5>
+                </div>
+                <hr>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

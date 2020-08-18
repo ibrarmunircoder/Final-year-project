@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/investor-dashboard.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+      <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/"><img src="/img/Online_E2-Logo-black.png" alt="logo"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/investor-dashboard">Invest</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+          
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span style="background-color: orangered; border-radius: 50%;padding: 10px"><%= investor.investorName.split(" ")[0][0] %><%= investor.investorName.split(" ")[1][0] %></span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdown03">
+                <a class="dropdown-item" href="#">My Profile</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <hr>
+  <section>
+      <div class="conatiner">
+          <div class="row">
+              <div class="col-12">
+                <ul class="invest-display">
+                    <li>
+                        <a href="/investor-dashboard">Invest</a>
+                    </li>
+                    <li>
+                        <a href="/startup-search">Search</a>
+                    </li>
+                </ul>   
+              </div>
+          </div>
+      </div>
+  </section>  
+  <hr>
+
+  <section>
+      <div class="container">
+          <dv class="row">
+            <div class="col-md-6 col-lg-4 pb-3">
+        
+                <!-- Copy the content below until next comment -->
+                <div class="card card-custom bg-white border-white border-0">
+                  <div class="card-custom-img" style="background-image: url(http://res.cloudinary.com/d3/image/upload/c_scale,q_auto:good,w_1110/trianglify-v1-cs85g_cc5d2i.jpg);"></div>
+                  <div class="card-custom-avatar">
+                    <img class="img-fluid" src="data:image/jpeg;base64,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" alt="Avatar" />
+                  </div>
+                  <div class="card-body" style="overflow-y: auto">
+                    <h5 class="card-title text-center">Rs.<%= investor.Min_Investment %> - Rs.<%= investor.Max_Investment %></h5>
+                    <p class="text-center"><span class="material-icons">
+                        location_on
+                        </span><%= investor.city %>,<%= investor.country %></p>
+                    <p class="card-text text-center"><%= investor.professional_bg %></p>
+                  </div>
+                  <h4 class="text-center">Areas of Expertise</h4>
+                  <p class="text-center"><%= investor.Area_Of_Expertise %></p>
+                  
+                </div>
+            </div>
+
+
+          </dv>
+      </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

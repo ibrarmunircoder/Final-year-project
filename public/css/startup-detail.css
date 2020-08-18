@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+}
+#bg-image {
+    background-image: url('/img/investor.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 320px;
+    width: 100%;
+    position: relative;
+}
+
+#bg-image .bg-content {
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+    color: #fff;
+    padding: 7px;
+}
+.material-icons {
+    color: rgb(60, 60, 212);
+}
+
+.invest-display li:hover {
+    border-bottom: 2px solid gray;
+}
+
+.row-structure {
+    display: flex;
+    justify-content: space-between;
+}

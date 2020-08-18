@@ -1,0 +1,25 @@
+.nav-link {
+  color: black !important;
+  }
+a.navbar-brand {
+  color: black !important;
+}
+.invest-display {
+  display: flex;
+}
+
+ul.invest-display {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.invest-display li {
+  margin: 0px 12px;
+}
+
+ul.invest-display li a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}

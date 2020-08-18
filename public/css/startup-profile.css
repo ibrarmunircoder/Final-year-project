@@ -1,0 +1,79 @@
+body{
+    background-color: #25274d;
+}
+/* #nav-header nav {
+    background-color: #77bfa3;
+    color: #d56062;
+} */
+#nav-header ul a.nav-link {
+    color: #77bfa3;
+    font-weight: bold;
+}
+a.btn-primary.startup-read-more, a.btn-primary.invest-read-more {
+    background-color: #77bfa3;
+    border: 1px solid #77bfa3;
+}
+#header-background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('../img/slider1.jpg');
+    min-height: 600px;
+}
+
+.header-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+.header-heading {
+    padding: 70px 0;
+    color: white;
+}
+
+.invest-flex {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding: 30px;
+    background-color: rgb(211, 212, 212, 0.6);
+}
+
+.startup-btn, .invest-btn {
+    display: flex;
+    justify-content: center;
+}
+.contact{
+    padding: 4%;
+    height: 400px;
+}
+.col-md-3{
+    background: #28a745;
+    color: #fff;
+    padding: 4%;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+}
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 3%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+.contact-form button{
+    background: #25274d;
+    color: #fff;
+    font-weight: 600;
+    width: 25%;
+}
+.contact-form button:focus{
+    box-shadow:none;
+}

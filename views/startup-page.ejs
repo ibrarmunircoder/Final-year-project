@@ -1,0 +1,143 @@
+<%- include('includes/head.ejs') %>
+    
+<%- include('includes/navigation.ejs') %>
+
+    <section>
+        <div class="fluid-container" id="header-background" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/img/slider2.jpg');">
+            <div class="header-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="header-heading text-center display-2">Startup's Paltform</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="invest-flex">
+                        <h5>Invest in Pakistan's most promising Startups</h5>
+                        <p>Diversify your investment portfolio with access to highly curated and personalised deal flow from India and beyond</p>
+                        <div class="startup-btn">
+                            <a class="btn btn-success btn-lg" href="/register" role="button">I am startup</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Display startups -->
+    <section>
+        <div class="fuild-container container-gray">
+            <div class="row">
+                <div class="col">
+                    <h3 class="startup-heading-display">Find an investment opportunity that's right for you.</h3>
+                </div>
+            </div>
+            <div class="row px-lg-5 startup-section-display">
+                <% startups.forEach(startup => { %>
+                    <div class="col-md-4">
+                        <div class="card startup-card" style="height: 500px;">
+                            <img class="card-img-top" src="http://via.placeholder.com/640x260" alt="Card image cap">
+                            <div class="card-body">
+                              <h5 class="card-title"><%= startup.startupName %></h5>
+                              <p><span class="material-icons">
+                                location_on
+                                </span><%= startup.city %>,<%= startup.country %></p>
+                              <p class="card-text"><%= startup.startup_summary %></p>
+                              <div class="budget">
+                                <div class="budget-target">
+                                    <h5>Rs. <%= startup.total_amount %></h5>
+                                    <p>Target</p>
+                                </div>
+                                <div class="budget-min">
+                                  <h5>Rs. <%= startup.per_investor %></h5>
+                                  <p>Min Per Investor</p>
+                              </div>
+                            </div>
+                              <a href="/startup-detail-page/<%= startup._id %>" class="btn btn-primary startup-read-more">Read More</a>
+                            </div>
+                          </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section investor -->
+    
+    <!-- categories -->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3 class="startup-heading-display">Most Popular Industries.</h3>
+                </div>
+            </div>
+            <ul class="industries">
+                <li><a href="" class="btn btn-light">Software</a></li>
+                <li><a href="" class="btn btn-light">Food</a></li>
+                <li><a href="" class="btn btn-light">Property</a></li>
+                <li><a href="" class="btn btn-light">Technology</a></li>
+                <li><a href="" class="btn btn-light">Restaurant & Bars</a></li>
+                <li><a href="" class="btn btn-light">Retail</a></li>
+                <li><a href="" class="btn btn-light">Education & Training</a></li>
+                <li><a href="" class="btn btn-light">Medical & Science</a></li>
+                <li><a href="" class="btn btn-light">Transportation</a></li>
+                <li><a href="" class="btn btn-light">Agriculture</a></li>
+                <li><a href="" class="btn btn-light">Media</a></li>
+                <li><a href="" class="btn btn-light">Business Services</a></li>
+                <li><a href="" class="btn btn-light">Finance</a></li>
+                <li><a href="" class="btn btn-light">Manufactoring & Engineering</a></li>
+                <li><a href="" class="btn btn-light">Engergy and Electricity</a></li>
+                <li><a href="" class="btn btn-light">Product & Inventions</a></li>
+                <li><a href="" class="btn btn-light">Sales & Marketing</a></li>
+                <li><a href="" class="btn btn-light">Fashion & Beauty</a></li>
+                <li><a href="" class="btn btn-light">Entertainment</a></li>
+                <li><a href="" class="btn btn-light">Personal Services</a></li>
+            </ul>
+        </div>
+    </section>
+
+ 
+
+    <!-- Footer -->
+
+    <section>
+        <div class="fuid-container">
+            <footer>
+                <div class="footer" id="footer">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <h4> Online Entrepreneurship <br> Ecosystem </h4>
+                            </div>
+                            <div class="col-lg-3 col-sm-2 col-xs-3">
+                                <h3> Contact </h3>
+                                <ul>
+                                    <li><a class="email"href="#">ibrarmunir009@outlook.com</a></li>
+                                    <br/>
+                                    <li> <p> 1234 Lahore, Pakistan </p> </li>
+                                    <li> <p> 3455 Karachi, Pakistan </p> </li>
+                                </ul>
+                            </div>
+                            
+                           
+                        <!--/.row--> 
+                    </div>
+                    <!--/.container--> 
+                </div>
+                <!--/.footer-->
+                                      
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="pull-left copyright"> Copyright © Footer 2014. All right reserved. </p>
+                   
+                    </div>
+                </div>
+                <!--/.footer-bottom--> 
+            
+            </footer>
+        </div>
+    </section>
+
+<%- include('includes/end.ejs') %>
