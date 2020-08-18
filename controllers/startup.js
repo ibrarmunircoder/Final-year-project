@@ -31,6 +31,9 @@ module.exports.getStartupDetailPage = (req, res, next) => {
 };
 
 module.exports.postStartupSendRequest = async (req, res, next) => {
+    if(!req.session.isLoggedIn){
+        return res.render('/login');
+    }
     const _id = req.body.id;
     const startup = await Startup.findById(_id);
     const investor = await Investor.findOne({ userId: req.session.user._id });
