@@ -17,7 +17,7 @@ const startupRoutes = require('../routes/startup');
 
 const app = express();
 const store = new MongoDBStore({
-    uri: MONGOOSE_URI,
+    uri: process.env.blog_db,
     collection: 'sessions'
 })
 
@@ -40,7 +40,7 @@ app.use(startupRoutes);
 app.use((req, res, next) => {
     res.status(404).render('404');
 });
-mongoose.connect(MONGOOSE_URI, { useNewUrlParser: true })
+mongoose.connect(process.env.blog_db, { useNewUrlParser: true })
     .then(result => {
         app.listen(port, () => {
             console.log(`server is up on ${port}`);
